@@ -11,6 +11,6 @@ import UIKit
 
 extension UIViewController {
     static func topViewController() -> UIViewController {
-        return UIApplication.shared.keyWindow?.rootViewController
+        return (UIApplication.shared.keyWindow?.rootViewController)!
     }
 }

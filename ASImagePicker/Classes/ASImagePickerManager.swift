@@ -33,8 +33,7 @@ public class ASImagePickerManager: NSObject {
                 if status == .authorized {
                     completion()
                 } else {
-                    let alertVC = UIAlertController.init(title: "", message: <#T##String?#>, preferredStyle: <#T##UIAlertControllerStyle#>)
-                    UIViewController.topViewController()
+                    
                 }
             })
             
@@ -42,12 +41,16 @@ public class ASImagePickerManager: NSObject {
         }
         
         if status == .denied || status == .restricted {
-            <#code#>
+            
         }
     }
     
     // check access to camera
     public func checkCameraAuth() {
+        
+    }
+    
+    private func alertWarningView() {
         
     }
 }

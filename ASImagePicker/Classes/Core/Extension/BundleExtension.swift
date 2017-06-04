@@ -8,13 +8,15 @@
 
 import Foundation
 
-public func currentBundle(className:AnyClass) -> Bundle? {
-    let frameworkBundle = Bundle.init(for: className)
-    guard let bundlePath = frameworkBundle.path(forResource: String.init(describing: className.self), ofType: "bundle") else {
-        return nil
+extension Bundle {
+    public func getBundle(for aClass: Swift.AnyClass) -> Bundle? {
+        let frameworkBundle = Bundle.init(for: aClass)
+        guard let bundlePath = frameworkBundle.path(forResource: String.init(describing: aClass.self), ofType: "bundle") else {
+            return nil
+        }
+        
+        let bundle = Bundle.init(path: bundlePath)
+        
+        return bundle
     }
-    
-    let bundle = Bundle.init(path: bundlePath)
-    
-    return bundle
 }
