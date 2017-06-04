@@ -1,0 +1,24 @@
+PODS:
+  - ASImagePicker (0.1.0):
+    - SDWebImage (~> 3.8)
+    - SnapKit (~> 3.2.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SnapKit (3.2.0)
+
+DEPENDENCIES:
+  - ASImagePicker (from `../`)
+
+EXTERNAL SOURCES:
+  ASImagePicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASImagePicker: e4f22c99a3aa33cc85fec4462efc0c325c3fd7ba
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+
+PODFILE CHECKSUM: 3b927db3830b261ae4e079f74f4aa59a6acd8d9b
+
+COCOAPODS: 1.2.1
