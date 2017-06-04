@@ -10,19 +10,15 @@ import UIKit
 import Photos
 
 public class ASImagePickerManager: NSObject {
-//    case notDetermined // User has not yet made a choice with regards to this application
-//    
-//    case restricted // This application is not authorized to access photo data.
-//    
-//    // The user cannot change this application’s status, possibly due to active restrictions
-//    //   such as parental controls being in place.
-//    case denied // User has explicitly denied this application access to photos data.
-//    
-//    case authorized // User has authorized this application to access photos data.
+    public let AppName:String;
+    
+    public init(appName:String) {
+        self.AppName = appName
+        super.init()
+    }
     
     // check access to album
     public func checkAlbumAuth(completion:@escaping ()->()) {
-        alertWarningView()
         
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .authorized {
@@ -34,8 +30,6 @@ public class ASImagePickerManager: NSObject {
             PHPhotoLibrary.requestAuthorization({ (status) in
                 if status == .authorized {
                     completion()
-                } else {
-                    
                 }
             })
             
@@ -43,7 +37,7 @@ public class ASImagePickerManager: NSObject {
         }
         
         if status == .denied || status == .restricted {
-            
+            self.alertWarningView()
         }
     }
     
@@ -55,6 +49,11 @@ public class ASImagePickerManager: NSObject {
     private func alertWarningView() {
         let bundle = Bundle.getBundle()
         
-        let alertView = UIAlertController.init(title: "warning".localization(bundle: bundle!), message: "aaa", preferredStyle: .alert);
+        let alertVC = UIAlertController.init(title: "warning".localization(bundle: bundle!), message:String.init(format: "please_open_camera_access".localization(bundle: bundle!), self.AppName), preferredStyle: .alert);
+        
+        let okAction = UIAlertAction.init(title: "ok".localization(bundle: bundle!), style: .default, handler: nil);
+        alertVC.addAction(okAction);
+        print(UIViewController.topViewController())
+        UIViewController.topViewController().present(alertVC, animated: true, completion: nil);
     }
 }

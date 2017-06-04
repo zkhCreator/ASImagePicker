@@ -15,9 +15,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let manager = ASImagePickerManager.init()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let manager = ASImagePickerManager.init(appName: "XXX");
         manager.checkAlbumAuth {
-            print("a");
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor.red
+            self.present(vc, animated: true, completion: nil);
         }
     }
 

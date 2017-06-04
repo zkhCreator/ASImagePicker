@@ -8,3 +8,4 @@
 "warning" = "提醒";
 "cancel" = "取消";
 "ok" = "确定";
+"please_open_camera_access" = "没有权限访问你的相机，请在手机的“设置-隐私-相机”选项中允许%@访问";
