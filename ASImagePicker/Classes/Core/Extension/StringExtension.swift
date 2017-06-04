@@ -9,19 +9,28 @@
 import Foundation
 
 extension String {
-    public func localization(bundle: Bundle) -> String {
-        return NSLocalizedString(self, bundle: bundle, comment: self)
+    public func localization(bundle: Bundle?) -> String {
+        guard (bundle != nil) else {
+            return NSLocalizedString(self, comment: self)
+        }
+        
+        return NSLocalizedString(self, bundle: bundle!, comment: self)
     }
     
     public func localization() -> String {
-        return NSLocalizedString(self, comment: self)
+        return self.localization(bundle: nil)
     }
     
-    static func localization(key: String, bundle: Bundle) -> String {
-        return NSLocalizedString(key, tableName: nil, bundle: bundle, value: key, comment: key)
+    static func localization(key: String, bundle: Bundle?) -> String {
+        
+        guard (bundle != nil) else {
+            return NSLocalizedString(key, comment: key);
+        }
+        
+        return NSLocalizedString(key, tableName: nil, bundle: bundle!, comment: key)
     }
     
     static func localization(key: String) -> String {
-        return NSLocalizedString(key, comment: key)
+        return self.localization(key: key, bundle: nil)
     }
 }

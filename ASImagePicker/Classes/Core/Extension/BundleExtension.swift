@@ -9,14 +9,14 @@
 import Foundation
 
 extension Bundle {
-    public func getBundle(for aClass: Swift.AnyClass) -> Bundle? {
-        let frameworkBundle = Bundle.init(for: aClass)
-        guard let bundlePath = frameworkBundle.path(forResource: String.init(describing: aClass.self), ofType: "bundle") else {
+    static public func getBundle() -> Bundle? {
+        let frameworkBundle = Bundle.init(for: ASImagePickerManager.self)
+        guard let bundlePath = frameworkBundle.path(forResource: "ASImagePicker", ofType: "bundle") else {
             return nil
         }
         
         let bundle = Bundle.init(path: bundlePath)
         
-        return bundle
+        return bundle;
     }
 }

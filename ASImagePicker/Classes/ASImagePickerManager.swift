@@ -22,6 +22,8 @@ public class ASImagePickerManager: NSObject {
     
     // check access to album
     public func checkAlbumAuth(completion:@escaping ()->()) {
+        alertWarningView()
+        
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .authorized {
             completion()
@@ -51,6 +53,8 @@ public class ASImagePickerManager: NSObject {
     }
     
     private func alertWarningView() {
+        let bundle = Bundle.getBundle()
         
+        let alertView = UIAlertController.init(title: "warning".localization(bundle: bundle!), message: "aaa", preferredStyle: .alert);
     }
 }

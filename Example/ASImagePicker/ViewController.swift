@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import ASImagePicker
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let manager = ASImagePickerManager.init()
+        manager.checkAlbumAuth {
+            print("a");
+        }
     }
 
     override func didReceiveMemoryWarning() {
