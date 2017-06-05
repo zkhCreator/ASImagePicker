@@ -18,12 +18,13 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let manager = ASImagePickerManager.init(appName: "XXX");
-        manager.checkAlbumAuth {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor.red
-            self.present(vc, animated: true, completion: nil);
-        }
+//        let manager = ASImagePickerManager.init(appName: "XXX");
+//        manager.checkAlbumAuth {
+//            let vc = UIViewController()
+//            vc.view.backgroundColor = UIColor.red
+//            self.present(vc, animated: true, completion: nil);
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {

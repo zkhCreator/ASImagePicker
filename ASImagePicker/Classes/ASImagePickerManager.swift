@@ -11,12 +11,17 @@ import Photos
 
 public class ASImagePickerManager: NSObject {
     public let AppName:String;
+//    public let albumListViewController:ASAlbumListViewController = {
+//        let vc = AlbumListViewController.
+//        return vc;
+//    }()
     
     public init(appName:String) {
         self.AppName = appName
         super.init()
     }
     
+    // MARK: - Authorization
     // check access to album
     public func checkAlbumAuth(completion:@escaping ()->()) {
         
@@ -37,23 +42,80 @@ public class ASImagePickerManager: NSObject {
         }
         
         if status == .denied || status == .restricted {
-            self.alertWarningView()
+            let bundle = Bundle.getBundle()
+            let alertVC = UIViewController.warningAlertViewController(title: "warning".localization(bundle: bundle), message: String.init(format: "please_open_album_access".localization(bundle: bundle), self.AppName))
+            UIViewController.topViewController().present(alertVC, animated: true, completion: nil);
         }
     }
     
     // check access to camera
-    public func checkCameraAuth() {
+    public func checkCameraAuth(completion:@escaping()->()) {
+        // check you device is available
+        let deviceAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
         
+        if !deviceAvailable {
+            let vc = UIViewController.warningAlertViewController(title: "warning".localization(bundle: Bundle.getBundle()), message: "device_cant_access".localization(bundle: Bundle.getBundle()))
+            
+            UIViewController.topViewController().present(vc, animated: true, completion: nil)
+            return ;
+        }
+        
+        // check camera is available 
+        let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        
+        if status == .authorized {
+            completion()
+            return ;
+        }
+        
+        if status == .notDetermined {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (isAccess) in
+                if isAccess {
+                    completion()
+                }
+            })
+            return ;
+        }
+        
+        if status == .denied || status == .restricted {
+            let bundle = Bundle.getBundle()
+            let alertVC = UIViewController.warningAlertViewController(title: "warning".localization(bundle: bundle), message: String.init(format: "please_open_camera_access".localization(bundle: bundle), self.AppName))
+            UIViewController.topViewController().present(alertVC, animated: true, completion: nil);
+            return ;
+        }
     }
     
-    private func alertWarningView() {
-        let bundle = Bundle.getBundle()
+    // MARK: - Photo List
+    private static func loadAllCollection() -> Array<PHAssetCollection> {
+        var resultArray:Array<PHAssetCollection> = []
         
-        let alertVC = UIAlertController.init(title: "warning".localization(bundle: bundle!), message:String.init(format: "please_open_camera_access".localization(bundle: bundle!), self.AppName), preferredStyle: .alert);
+        let myPhotoStreamAlbum = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumMyPhotoStream, options: nil);
+        let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
+        let topLevelUserCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil);
+        let syncedAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumSyncedAlbum, options: nil)
+        let sharedAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumCloudShared, options: nil)
         
-        let okAction = UIAlertAction.init(title: "ok".localization(bundle: bundle!), style: .default, handler: nil);
-        alertVC.addAction(okAction);
-        print(UIViewController.topViewController())
-        UIViewController.topViewController().present(alertVC, animated: true, completion: nil);
+        let results = [myPhotoStreamAlbum,
+                        smartAlbums,
+                        topLevelUserCollections,
+                        syncedAlbums,
+                        sharedAlbums]
+        
+        
+        
+        for obj in results {
+            if obj is PHFetchResult<AnyObject> {
+                let result = obj as! PHFetchResult<AnyObject>
+                result.enumerateObjects({ (item, count, stop) in
+                    if item is PHAssetCollection {
+                        resultArray.append(item as! PHAssetCollection)
+                    } else {
+                        stop.pointee = true
+                    }
+                })
+            }
+        }
+        return resultArray
     }
+    
 }
