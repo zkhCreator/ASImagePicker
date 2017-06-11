@@ -7,8 +7,8 @@ target 'ASImagePicker_Example' do
 
   target 'ASImagePicker_Tests' do
     
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', :inhibit_warnings => true
+    pod 'Nimble', :inhibit_warnings => true
 
   end
 end

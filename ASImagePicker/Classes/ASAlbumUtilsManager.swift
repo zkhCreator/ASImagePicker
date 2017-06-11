@@ -9,6 +9,9 @@
 import UIKit
 import Photos
 
+public let ASPhotoCellSpace:CGFloat = 10
+public let ASPhotoCellItemWH = (UIScreen.main.bounds.width - 5 * ASPhotoCellSpace) / 4
+
 public class ASAlbumUtilsManager: NSObject {
     public static let shared = ASAlbumUtilsManager()
     
@@ -17,7 +20,7 @@ public class ASAlbumUtilsManager: NSObject {
     
     override init() {
         self.albumListVC = ASAlbumListViewController();
-        self.photoListVC = ASPhotoCollectionViewController()
+        self.photoListVC = ASPhotoCollectionViewController.init()
         
         super.init()
     }
@@ -95,6 +98,39 @@ public class ASAlbumUtilsManager: NSObject {
         
         return resultArray
     }
-
+    
+    // MARK: - Photo Info
+    static public func convert(model:ASPhotoAssetModel, completion:@escaping (_ image:UIImage)->() ) {
+        
+        let fetchOption = PHImageRequestOptions.init()
+        fetchOption.version = .current
+        fetchOption.resizeMode = .exact
+        fetchOption.isNetworkAccessAllowed = false
+        
+        PHCachingImageManager.default().requestImage(for: model.asset, targetSize: CGSize.init(width: ASPhotoCellItemWH, height: ASPhotoCellItemWH), contentMode: .aspectFill, options: fetchOption) { (image, info) in
+            let isFinished = !(info?[PHImageResultIsDegradedKey] as! Bool)
+            if isFinished {
+                guard image != nil else{
+                    return ;
+                }
+                completion(image!)
+            }
+        }
+    }
+    
+    static public func fetchAllAssetsPhotoes(collection:ASCollectionModel, completion:(_ images:[ASPhotoAssetModel])->()) {
+        let fetchOptions = PHFetchOptions.init()
+        
+        fetchOptions.sortDescriptors = [NSSortDescriptor.init(key: "creationDate", ascending: true)]
+        let result = PHAsset.fetchAssets(in: collection.assetCollection, options: fetchOptions)
+        
+        var photoResults:[ASPhotoAssetModel] = []
+        result.enumerateObjects({ (asset, index, stop) in
+            let assetModel = ASPhotoAssetModel.init(asset: asset)
+            photoResults.append(assetModel)
+        })
+        
+        completion(photoResults)
+    }
     
 }

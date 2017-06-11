@@ -33,6 +33,15 @@ class ViewController: UIViewController {
             make.centerX.equalTo(self.view)
             make.top.equalTo(openAlbumButton.snp.bottom).offset(40)
         }
+        
+        let openPhotoCollectionButton = UIButton.init()
+        self.view.addSubview(openPhotoCollectionButton)
+        openPhotoCollectionButton.setTitle("open Photo List", for: .normal)
+        openPhotoCollectionButton.addTarget(self, action: #selector(openPhotoCollectionVC), for: .touchUpInside)
+        openPhotoCollectionButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(openCameraButton.snp.bottom).offset(40)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +63,11 @@ class ViewController: UIViewController {
     func openCameraVC() {
         print("openCameraVC")
     }
-
+    
+    func openPhotoCollectionVC() {
+        print("open Photo List VC");
+        
+        self.navigationController?.pushViewController(ASAlbumUtilsManager.shared.photoListVC, animated: true)
+    }
 }
 

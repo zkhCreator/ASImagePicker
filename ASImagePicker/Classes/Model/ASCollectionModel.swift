@@ -15,6 +15,8 @@ public class ASCollectionModel: NSObject {
     let thumbnail:UIImage?
     let assetCollection:PHAssetCollection
     
+    static let defaultCollection = ASCollectionModel.init(assetCollection: PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject!);
+    
     init(assetCollection:PHAssetCollection) {
         self.name = assetCollection.localizedTitle ?? "no name"
         self.count = assetCollection.estimatedAssetCount
@@ -22,4 +24,5 @@ public class ASCollectionModel: NSObject {
         self.thumbnail = nil
         self.assetCollection = assetCollection
     }
+    
 }
