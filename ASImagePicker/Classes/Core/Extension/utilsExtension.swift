@@ -35,12 +35,12 @@ extension UIImage {
 }
 
 extension UIViewController {
-    static func topViewController() -> UIViewController {
+    static public func topViewController() -> UIViewController {
         let rootvc = (UIApplication.shared.delegate!).window??.rootViewController;
         return rootvc!
     }
     
-    static func warningAlertViewController(title:String, message:String) -> UIAlertController {
+    static public func warningAlertViewController(title:String, message:String) -> UIAlertController {
         let alertVC = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction.init(title: "ok".localization(bundle: Bundle.getBundle()), style: .default, handler: nil);
         
@@ -62,18 +62,5 @@ extension String {
     
     public func localization() -> String {
         return self.localization(bundle: nil)
-    }
-    
-    static func localization(key: String, bundle: Bundle?) -> String {
-        
-        guard (bundle != nil) else {
-            return NSLocalizedString(key, comment: key);
-        }
-        
-        return NSLocalizedString(key, tableName: nil, bundle: bundle!, comment: key)
-    }
-    
-    static func localization(key: String) -> String {
-        return self.localization(key: key, bundle: nil)
     }
 }

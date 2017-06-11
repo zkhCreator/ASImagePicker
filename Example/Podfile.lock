@@ -3,6 +3,8 @@ PODS:
     - SDWebImage (~> 3.8)
     - SnapKit (~> 3.2.0)
     - SVProgressHUD (~> 2.0)
+  - Nimble (7.0.1)
+  - Quick (1.1.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -11,6 +13,8 @@ PODS:
 
 DEPENDENCIES:
   - ASImagePicker (from `../`)
+  - Nimble
+  - Quick
 
 EXTERNAL SOURCES:
   ASImagePicker:
@@ -18,10 +22,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ASImagePicker: b14ca598c633496b5c1377d5de3523309b6000c4
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 3b927db3830b261ae4e079f74f4aa59a6acd8d9b
+PODFILE CHECKSUM: 4ece01b6f728b1573b40f50feb5691e54c6a4f40
 
 COCOAPODS: 1.2.1

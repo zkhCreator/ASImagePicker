@@ -6,8 +6,9 @@ target 'ASImagePicker_Example' do
   pod 'ASImagePicker', :path => '../'
 
   target 'ASImagePicker_Tests' do
-    inherit! :search_paths
-
+    
+    pod 'Quick'
+    pod 'Nimble'
 
   end
 end
