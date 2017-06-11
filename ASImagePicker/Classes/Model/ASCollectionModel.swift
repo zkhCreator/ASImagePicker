@@ -9,14 +9,17 @@
 import UIKit
 import Photos
 
-class ASCollectionModel: NSObject {
+public class ASCollectionModel: NSObject {
     let name:String
     let count:Int
-    let thumbnails:UIImage
+    let thumbnail:UIImage?
+    let assetCollection:PHAssetCollection
     
-    init(assetColletion:PHAssetCollection) {
-        self.name = assetColletion.localizedLocationNames.first!
-        self.count = assetColletion.estimatedAssetCount
-        self.thumbnails = UIImage()
+    init(assetCollection:PHAssetCollection) {
+        self.name = assetCollection.localizedTitle ?? "no name"
+        self.count = assetCollection.estimatedAssetCount
+// TODO: set the thumbnail value after load the tumbnail Image in collection
+        self.thumbnail = nil
+        self.assetCollection = assetCollection
     }
 }

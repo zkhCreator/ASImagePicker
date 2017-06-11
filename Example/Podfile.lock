@@ -2,10 +2,12 @@ PODS:
   - ASImagePicker (0.1.0):
     - SDWebImage (~> 3.8)
     - SnapKit (~> 3.2.0)
+    - SVProgressHUD (~> 2.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SnapKit (3.2.0)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - ASImagePicker (from `../`)
@@ -15,9 +17,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASImagePicker: e4f22c99a3aa33cc85fec4462efc0c325c3fd7ba
+  ASImagePicker: b14ca598c633496b5c1377d5de3523309b6000c4
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
 PODFILE CHECKSUM: 3b927db3830b261ae4e079f74f4aa59a6acd8d9b
 
