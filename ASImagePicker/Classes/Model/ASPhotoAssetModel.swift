@@ -16,4 +16,8 @@ public class ASPhotoAssetModel: NSObject {
         self.asset = asset
         super.init()
     }
+    
+    static func == (left: inout ASPhotoAssetModel, right: inout ASPhotoAssetModel) {
+        left.asset == right.asset
+    }
 }

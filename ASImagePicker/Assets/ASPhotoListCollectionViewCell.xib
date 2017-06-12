@@ -29,6 +29,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <state key="normal" image="photo_btn_unchecked.png"/>
+                        <state key="selected" image="photo_btn_checked.png"/>
                     </button>
                 </subviews>
             </view>
@@ -49,6 +50,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="photo_btn_checked.png" width="22" height="22"/>
         <image name="photo_btn_unchecked.png" width="22" height="22"/>
     </resources>
 </document>

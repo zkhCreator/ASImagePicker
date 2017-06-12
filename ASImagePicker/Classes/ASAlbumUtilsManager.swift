@@ -18,9 +18,12 @@ public class ASAlbumUtilsManager: NSObject {
     public let albumListVC:ASAlbumListViewController
     public let photoListVC:ASPhotoCollectionViewController
     
-    override init() {
+    let maxSelectedCount:NSInteger
+
+    init(maxCount:NSInteger = NSInteger.max) {
         self.albumListVC = ASAlbumListViewController();
         self.photoListVC = ASPhotoCollectionViewController.init()
+        self.maxSelectedCount = maxCount
         
         super.init()
     }
@@ -53,6 +56,7 @@ public class ASAlbumUtilsManager: NSObject {
     }
     
     // MARK: - Photo List
+    // load all album in the Phone
     static func loadAllCollection() -> Array<PHAssetCollection> {
         var resultArray:Array<PHAssetCollection> = []
         
@@ -67,9 +71,7 @@ public class ASAlbumUtilsManager: NSObject {
                        topLevelUserCollections,
                        syncedAlbums,
                        sharedAlbums]
-        
-        
-        
+
         for obj in results {
             if obj is PHFetchResult<AnyObject> {
                 let result = obj as! PHFetchResult<AnyObject>
@@ -85,10 +87,12 @@ public class ASAlbumUtilsManager: NSObject {
         return resultArray
     }
     
+    // load all album and convert to ASCollectionModel
     static public func loadAllASCollectionModels() -> Array<ASCollectionModel> {
         return convertCollections(collections: loadAllCollection())
     }
     
+    // convert all album collection to ASCollection
     static public func convertCollections(collections:Array<PHAssetCollection>) -> Array<ASCollectionModel> {
         
         var resultArray:Array<ASCollectionModel> = []
@@ -100,6 +104,7 @@ public class ASAlbumUtilsManager: NSObject {
     }
     
     // MARK: - Photo Info
+    // convert assert to Image
     static public func convert(model:ASPhotoAssetModel, completion:@escaping (_ image:UIImage)->() ) {
         
         let fetchOption = PHImageRequestOptions.init()
@@ -118,7 +123,8 @@ public class ASAlbumUtilsManager: NSObject {
         }
     }
     
-    static public func fetchAllAssetsPhotoes(collection:ASCollectionModel, completion:(_ images:[ASPhotoAssetModel])->()) {
+    // Load all Image Assets
+    static public func fetchAllAssetsphotos(collection:ASCollectionModel, completion:(_ images:[ASPhotoAssetModel])->()) {
         let fetchOptions = PHFetchOptions.init()
         
         fetchOptions.sortDescriptors = [NSSortDescriptor.init(key: "creationDate", ascending: true)]

@@ -63,4 +63,8 @@ extension String {
     public func localization() -> String {
         return self.localization(bundle: nil)
     }
+    
+    public func currentLocalization() -> String {
+        return self.localization(bundle: Bundle.getBundle())
+    }
 }

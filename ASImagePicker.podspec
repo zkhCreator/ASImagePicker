@@ -42,4 +42,5 @@ You can select Image from album and take photo from camera
   s.dependency 'SVProgressHUD', '~> 2.0'
   s.dependency 'SDWebImage', '~> 3.8'
   s.dependency 'SnapKit', '~> 3.2.0'
+  s.dependency 'SwiftyBeaver'
 end

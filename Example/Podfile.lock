@@ -3,6 +3,7 @@ PODS:
     - SDWebImage (~> 3.8)
     - SnapKit (~> 3.2.0)
     - SVProgressHUD (~> 2.0)
+    - SwiftyBeaver
   - Nimble (7.0.1)
   - Quick (1.1.0)
   - SDWebImage (3.8.2):
@@ -10,6 +11,7 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - SnapKit (3.2.0)
   - SVProgressHUD (2.1.2)
+  - SwiftyBeaver (1.2.2)
 
 DEPENDENCIES:
   - ASImagePicker (from `../`)
@@ -21,12 +23,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASImagePicker: b14ca598c633496b5c1377d5de3523309b6000c4
+  ASImagePicker: 87867a1b662f7f359553cbdb565d2ae1e0aed228
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84
 
 PODFILE CHECKSUM: d2a3d5cd2c03a553241c9c3b539e72106e923f61
 
