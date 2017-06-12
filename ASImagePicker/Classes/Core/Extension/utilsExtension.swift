@@ -68,3 +68,18 @@ extension String {
         return self.localization(bundle: Bundle.getBundle())
     }
 }
+
+
+// create operator to check ASPhotoAssetModel in the array
+infix operator <<<<
+
+extension Array where Iterator.Element == ASPhotoAssetModel {
+    static func <<<<(model:ASPhotoAssetModel, array:[ASPhotoAssetModel]) -> Int {
+        for e in array.enumerated() {
+            if e.element == model {
+                return e.offset
+            }
+        }
+        return NSNotFound
+    }
+}
