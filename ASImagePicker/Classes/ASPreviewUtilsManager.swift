@@ -9,11 +9,11 @@
 import UIKit
 
 public class ASPreviewUtilsManager: NSObject {
-    public static let shared = ASPreviewUtilsManager()
-    
-    public var previewController:ASPreviewViewController
-    
-    
+//    public static let shared = ASPreviewUtilsManager()
+//    
+//    public var previewController:ASPreviewViewController
+//    
+//    
     
     
     

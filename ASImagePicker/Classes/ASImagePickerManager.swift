@@ -9,20 +9,25 @@
 import UIKit
 import Photos
 
+
+
 public class ASImagePickerManager: NSObject {
     
     static public let shared = ASImagePickerManager()
     public var configManager = ASImagePickerConfigManager.init()
     
-    let selectedAssetsArray:[ASPhotoAssetModel] = [] // all photos include camera photo
+    var selectedAssetsArray:[ASPhotoAssetModel] = [] // all photos include camera photo
     let maxCount:NSInteger     // max selected Image
     
     let albumViewController:UINavigationController
     let cameraManager:ASCameraUtilsManager
     
     init(maxCount:NSInteger = NSInteger.max) {
+        
         self.maxCount = maxCount
-        self.albumViewController = ASAlbumUtilsManager.shared
+        self.albumViewController = UINavigationController.init()
+        self.cameraManager = ASCameraUtilsManager.init()
+        super.init()
     }
     
     public func cleanAllSelectedImage() {
@@ -33,12 +38,12 @@ public class ASImagePickerManager: NSObject {
     public func showListView() {
         let alertSheetVC = UIAlertController.init(title: "warning".localization(bundle: Bundle.getBundle()), message: "please_selectModel".localization(bundle: Bundle.getBundle()), preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction.init(title: "camera".currentLocalization(), style: .default) { (action) in
-            <#code#>
+            
         }
     }
     
     func showCameraViewController() {
-        <#function body#>
+        
     }
 
 }

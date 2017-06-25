@@ -6,9 +6,10 @@ target 'ASImagePicker_Example' do
   pod 'ASImagePicker', :path => '../'
 
   target 'ASImagePicker_Tests' do
-    
     pod 'Quick', :inhibit_warnings => true
     pod 'Nimble', :inhibit_warnings => true
-
   end
+
 end
+
+
