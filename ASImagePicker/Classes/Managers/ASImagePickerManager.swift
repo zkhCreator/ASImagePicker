@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASImagePickerManager: NSObject {
+public class ASImagePickerManager: NSObject {
     static let shared = ASImagePickerManager()
     
     
