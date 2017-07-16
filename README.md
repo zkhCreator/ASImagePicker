@@ -1,6 +1,6 @@
 # ASImagePicker
 
-[![CI Status](http://img.shields.io/travis/zkh90644/ASImagePicker.svg?style=flat)](https://travis-ci.org/zkh90644/ASImagePicker)
+[![CI Status](http://img.shields.io/travis/zkhCreator/ASImagePicker.svg?style=flat)](https://travis-ci.org/zkhCreator/ASImagePicker)
 [![Version](https://img.shields.io/cocoapods/v/ASImagePicker.svg?style=flat)](http://cocoapods.org/pods/ASImagePicker)
 [![License](https://img.shields.io/cocoapods/l/ASImagePicker.svg?style=flat)](http://cocoapods.org/pods/ASImagePicker)
 [![Platform](https://img.shields.io/cocoapods/p/ASImagePicker.svg?style=flat)](http://cocoapods.org/pods/ASImagePicker)
@@ -22,7 +22,7 @@ pod "ASImagePicker"
 
 ## Author
 
-zkh90644, zkh90644@gmail.com
+zkhCreator, zkh90644@gmail.com
 
 ## License
 

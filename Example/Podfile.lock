@@ -1,36 +1,37 @@
 PODS:
-  - ASImagePicker (0.1.0):
-    - SDWebImage (~> 3.8)
-    - SnapKit (~> 3.2.0)
-    - SVProgressHUD (~> 2.0)
-    - SwiftyBeaver
-  - Nimble (7.0.1)
-  - Quick (1.1.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - SnapKit (3.2.0)
-  - SVProgressHUD (2.1.2)
-  - SwiftyBeaver (1.2.2)
+  - ASImagePicker (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Nimble (5.1.1)
+  - Nimble-Snapshots (4.4.0):
+    - Nimble-Snapshots/Core (= 4.4.0)
+  - Nimble-Snapshots/Core (4.4.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble
+    - Quick
+  - Quick (1.0.0)
 
 DEPENDENCIES:
   - ASImagePicker (from `../`)
-  - Nimble
-  - Quick
+  - FBSnapshotTestCase
+  - Nimble (~> 5.1.1)
+  - Nimble-Snapshots
+  - Quick (~> 1.0.0)
 
 EXTERNAL SOURCES:
   ASImagePicker:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ASImagePicker: 87867a1b662f7f359553cbdb565d2ae1e0aed228
-  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84
+  ASImagePicker: 723276cc2d8a1b576f159b8f3a3f21b355778e9a
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: d2a3d5cd2c03a553241c9c3b539e72106e923f61
+PODFILE CHECKSUM: 97dc9a86c85a79d90e0ca3ec302980c64e30a72a
 
 COCOAPODS: 1.2.1

@@ -1,14 +1,14 @@
 use_frameworks!
 
-platform :ios, '8.0'
-
 target 'ASImagePicker_Example' do
   pod 'ASImagePicker', :path => '../'
 
   target 'ASImagePicker_Tests' do
-    
-    pod 'Quick', :inhibit_warnings => true
-    pod 'Nimble', :inhibit_warnings => true
+    inherit! :search_paths
 
+    pod 'Quick', '~> 1.0.0'
+  pod 'Nimble', '~> 5.1.1'
+  pod 'FBSnapshotTestCase'
+  pod 'Nimble-Snapshots'
   end
 end

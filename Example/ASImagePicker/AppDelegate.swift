@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ASImagePicker
 //
-//  Created by zkh90644 on 06/04/2017.
-//  Copyright (c) 2017 zkh90644. All rights reserved.
+//  Created by zkhCreator on 07/16/2017.
+//  Copyright (c) 2017 zkhCreator. All rights reserved.
 //
 
 import UIKit
@@ -13,15 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        let vc = ViewController()
-        vc.view.frame = (window?.frame)!
-        window?.rootViewController = UINavigationController.init(rootViewController: vc);
-        
-        window?.makeKeyAndVisible()
-        
         return true
     }
 
