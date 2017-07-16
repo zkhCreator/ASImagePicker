@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '8.0'
 
 target 'ASImagePicker_Example' do
   pod 'ASImagePicker', :path => '../'
